@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+    <%= @friend.full_name %>
+  </h1>
+  <p class="lead">
+    <%= @friend.email %>  | 
+    <%= @friend.phone %>  |  
+    <%= @friend.facebook %>
+    <%= @friend.description %>
+    <br>
+    <%= image_tag @friend.featured_image, style: "width: 200px; height: 200px; object-fit: cover;", alt: @friend.full_name if @friend.featured_image.attached? %>
+  </p>
+</div>
+<div style="display:flex; justify-content: space-between; width:200px;">
+    <% if user_signed_in? %>
+    <%= link_to 'Chỉnh sửa', edit_friend_path(@friend), class:"btn btn-secondary mr-1" %>
+    <%= button_to "Xoá", @friend, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger delete-button mr-1" %>
+    <% end %>
+    <%= link_to 'Quay lại', friends_path, class:"btn btn-dark" %>
+  </div>

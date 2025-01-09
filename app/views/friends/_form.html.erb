@@ -1,0 +1,48 @@
+<%= form_with(model: friend, local: true) do |form| %>
+  <% if friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+        <% friend.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group mb-3">
+    <%= form.label :Họ_Và_Tên %>
+    <%= form.text_field :full_name, class:"form-control", placeholder:"Họ tên", required: true %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"Email", required: true %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.label :Số_Điện_Thoại %>
+    <%= form.text_field :phone, class:"form-control", placeholder:"SĐT", required: true %>
+  </div>
+
+  <div class="field form-group mb-3">
+    <%= form.label :Link_facebook_Cá_Nhân %>
+    <%= form.text_field :facebook, class:"form-control", placeholder:"Facebook", required: true %>
+  </div>
+
+  <div>
+    <%= form.label :Vị_Trí_Công_Việc, style: "display: block" %>
+    <%= form.rich_text_area :description, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :Ảnh_Nổi_Bật, style: "display: block" %>
+    <%= form.file_field :featured_image, accept: "image/*" %>
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+<% end %>

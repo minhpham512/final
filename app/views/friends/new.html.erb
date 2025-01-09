@@ -1,0 +1,11 @@
+<% content_for :title, "Thêm hồ sơ" %>
+
+<h1 text align="center">Thêm Hồ Sơ Nhân Viên</h1>
+
+<%= render "form", friend: @friend %>
+
+<br>
+
+<div>
+  <%= link_to "Quay lại", friends_path, class:"btn btn-dark" %>
+</div>
